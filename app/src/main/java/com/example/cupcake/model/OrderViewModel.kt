@@ -17,9 +17,10 @@ class OrderViewModel: ViewModel() {
 
     private val _price = MutableLiveData<Double>(0.0)
     val price: LiveData<Double> = _price
-
-    fun setQuantity(numberCapcakes: Int) {
-        _quantity.value = numberCapcakes
+// принимает количество кексов выбраных пользователем в фрагменте старт и присваевает их переменой
+// количество
+    fun setQuantity(numberCupcakes: Int) {
+        _quantity.value = numberCupcakes
     }
 
     fun setFlavor(desiredFlavor: String){
@@ -30,6 +31,7 @@ class OrderViewModel: ViewModel() {
         _date.value = pickupDate
     }
 
+//    проверяет установлен ли вкус пироженого
     fun hasNoFlavorSet(): Boolean {
         return _flavor.value.isNullOrEmpty()
     }
