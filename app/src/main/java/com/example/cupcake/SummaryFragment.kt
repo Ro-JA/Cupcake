@@ -51,6 +51,10 @@ class SummaryFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.apply {
+            viewModel = sharedViewModel
+        }
+
+        binding?.apply {
             sendButton.setOnClickListener { sendOrder() }
         }
     }

@@ -50,6 +50,11 @@ class FlavorFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+//        Связываем шаредвью с вью в макете через функцию эплай получаем доступ к обекту без его имени
+        binding?.apply {
+            viewModel = sharedViewModel
+        }
+
         binding?.apply {
             nextButton.setOnClickListener { goToNextScreen() }
         }
