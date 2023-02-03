@@ -3,9 +3,11 @@ package com.example.cupcake.model
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import java.text.SimpleDateFormat
+import java.util.*
 
-class OrderViewModel: ViewModel() {
-// Добавили своиствам вспомогательные поля для наблюдения и изменения пользоватьльского интрефейса
+class OrderViewModel : ViewModel() {
+    // Добавили своиствам вспомогательные поля для наблюдения и изменения пользоватьльского интрефейса
     private val _quantity = MutableLiveData<Int>(0)
     val quantity: LiveData<Int> = _quantity
 
@@ -17,13 +19,16 @@ class OrderViewModel: ViewModel() {
 
     private val _price = MutableLiveData<Double>(0.0)
     val price: LiveData<Double> = _price
-// принимает количество кексов выбраных пользователем в фрагменте старт и присваевает их переменой
+
+    val dateOptions = getPickupOptions()
+
+    // принимает количество кексов выбраных пользователем в фрагменте старт и присваевает их переменой
 // количество
     fun setQuantity(numberCupcakes: Int) {
         _quantity.value = numberCupcakes
     }
 
-    fun setFlavor(desiredFlavor: String){
+    fun setFlavor(desiredFlavor: String) {
         _flavor.value = desiredFlavor
     }
 
@@ -31,8 +36,23 @@ class OrderViewModel: ViewModel() {
         _date.value = pickupDate
     }
 
-//    проверяет установлен ли вкус пироженого
+    //    проверяет установлен ли вкус пироженого
     fun hasNoFlavorSet(): Boolean {
         return _flavor.value.isNullOrEmpty()
     }
+
+    private fun getPickupOptions(): kotlin.collections.List<String> { // создает и возращает даты получения
+        val options = mutableListOf<String>()
+        val formatter = SimpleDateFormat("E MMM d", Locale.getDefault()) // строка форматирования
+        val calendar =
+            Calendar.getInstance() // получили экземпляр календаря для хранения текущей даты
+
+        repeat(4) {
+            options.add(formatter.format(calendar.time))
+            calendar.add(Calendar.DATE, 1)
+        }
+        return options
+
+    }
+
 }
