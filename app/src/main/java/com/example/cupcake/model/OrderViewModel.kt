@@ -11,9 +11,7 @@ private const val PRICE_FOR_SAME_DAY_PICKUP = 3.00
 
 class OrderViewModel : ViewModel() {
 
-    init {
-        resetOrder()
-    }
+
     // Добавили своиствам вспомогательные поля для наблюдения и изменения пользоватьльского интрефейса
     private val _quantity = MutableLiveData<Int>()
     val quantity = _quantity
@@ -28,6 +26,10 @@ class OrderViewModel : ViewModel() {
     val price: LiveData<Double> = _price
 
     val dateOptions = getPickupOptions()
+
+    init {
+        resetOrder()
+    }
 
     // принимает количество кексов выбраных пользователем в фрагменте старт и присваевает их переменой
 // количество
