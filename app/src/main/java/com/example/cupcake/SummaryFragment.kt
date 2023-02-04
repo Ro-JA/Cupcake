@@ -55,6 +55,10 @@ class SummaryFragment : Fragment() {
         }
 
         binding?.apply {
+            lifecycleOwner = viewLifecycleOwner
+        }
+
+        binding?.apply {
             sendButton.setOnClickListener { sendOrder() }
         }
     }
