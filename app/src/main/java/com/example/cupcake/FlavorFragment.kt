@@ -53,14 +53,10 @@ class FlavorFragment : Fragment() {
 //        Связываем шаредвью с вью в макете через функцию эплай получаем доступ к обекту без его имени
         binding?.apply {
             viewModel = sharedViewModel
-        }
 
-        binding?.apply {
             lifecycleOwner = viewLifecycleOwner
-        }
 
-        binding?.apply {
-            nextButton.setOnClickListener { goToNextScreen() }
+            flavorFragment = this@FlavorFragment
         }
     }
 

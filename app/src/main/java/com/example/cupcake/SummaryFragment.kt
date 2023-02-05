@@ -52,14 +52,11 @@ class SummaryFragment : Fragment() {
 
         binding?.apply {
             viewModel = sharedViewModel
-        }
 
-        binding?.apply {
             lifecycleOwner = viewLifecycleOwner
-        }
 
-        binding?.apply {
-            sendButton.setOnClickListener { sendOrder() }
+            summaryFragment = this@SummaryFragment
+
         }
     }
 
