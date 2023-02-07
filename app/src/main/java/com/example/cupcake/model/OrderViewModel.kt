@@ -70,7 +70,7 @@ class OrderViewModel : ViewModel() {
 
     }
 
-    private fun resetOrder() { // cбросить прорядок
+    fun resetOrder() { // cбросить прорядок
         _quantity.value = 0
         _flavor.value = ""
         _date.value = dateOptions[0]

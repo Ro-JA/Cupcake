@@ -117,7 +117,8 @@
                 android:text="@string/cancel"
                 app:layout_constraintEnd_toStartOf="@id/next_button"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/next_button" />
+                app:layout_constraintTop_toTopOf="@id/next_button"
+                android:onClick="@{() -> flavorFragment.canselOrder()}"/>
 
             <Button
                 android:id="@+id/next_button"
